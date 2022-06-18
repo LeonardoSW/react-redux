@@ -14,7 +14,7 @@ export const slice = createSlice({
 
         },
          changeUser(state, action){
-
+            
             auth()
             .signInWithEmailAndPassword(action.payload.user, action.payload.password)
             .then(() => {
