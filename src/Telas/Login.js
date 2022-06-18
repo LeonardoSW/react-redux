@@ -30,7 +30,6 @@ const Login = () => {
     function showUser() {
         console.log(userLoged);
         Alert.alert("Usuario logado:" , userLoged.user.user);
-        //dispatch(changeUser({user: email, password: pass}))
     }
 }
 

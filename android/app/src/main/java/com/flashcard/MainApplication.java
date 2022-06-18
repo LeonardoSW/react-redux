@@ -12,6 +12,7 @@ import com.facebook.soloader.SoLoader;
 import com.flashcard.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+//import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
