@@ -1,7 +1,6 @@
-import react from 'react';
-import React, {useState} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
 
+import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../Redux/userSlice';
 
