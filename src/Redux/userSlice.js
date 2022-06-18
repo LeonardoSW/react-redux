@@ -13,11 +13,28 @@ export const slice = createSlice({
         setEmail(){
 
         },
-         changeUser(state, {payload, pass}){
-             return {...state, password:pass, user: payload, message:''}
+         changeUser(state, action){
+
+            auth()
+            .signInWithEmailAndPassword(action.payload.user, action.payload.password)
+            .then(() => {
+                console.log('Login with success!');
+                Alert.alert("Login.", "Login efetuado com sucesso!"); 
+            })
+            .catch(error => {
+                console.log(error.code);
+                if(error.code == "auth/user-not-found")
+                    Alert.alert("Tentativa de login falhou.", "Usuario não encontrado, por favor, cadastre-se.");
+
+                if(error.code == "auth/wrong-password")
+                    Alert.alert("Tentativa de login falhou.", "Senha incorreta, tente novamente.");
+            })
+
+             return {...state, password: action.payload.password, user: action.payload.user}
 
          },
-        createUser(state, action){
+        
+         createUser(state, action){
              console.log('recebido: ' + action.payload.user + ' - ' + action.payload.password)
              console.log(action.type);
 

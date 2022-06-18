@@ -1,18 +1,27 @@
 import React from 'react';
-import {View, Text} from 'react-native'
-import Signin from './Signin';
+import {View, Text, TextInput, Button} from 'react-native'
 
 import {useState} from 'react';
 import { useDispatch } from 'react-redux';
+import { changeUser } from '../Redux/userSlice';
 
-export default function Login() {
+const Login = () => {
+    const [email, setEmail] = useState('');
+    const [pass, setPwd] = useState('');
+    const dispatch = useDispatch();
+     
     return( 
         <View>
             <TextInput placeholder='Email' onChangeText={newEml => setEmail(newEml)} />
             <TextInput placeholder='Senha' onChangeText={newPwd => setPwd(newPwd)} />
-            <Button title='Cadastrar' onPress={handleSignin}/>
+            <Button title='Entrar' onPress={handleLogin}/>
         </View>
         )
+
+    function handleLogin() {
+        console.log(email + '   !   '+pass)
+        dispatch(changeUser({user: email, password: pass}))
+    }
 }
-    
-/*<Signin/>*/
+
+export default Login;

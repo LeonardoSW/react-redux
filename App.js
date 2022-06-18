@@ -8,8 +8,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import {NavigationContainer} from '@react-navigation/native';
-import Login from '../flashcard/src/Telas/Login';
+//import Login from '../flashcard/src/Telas/Login';
 import Signin from './src/Telas/Signin';
+import Login from './src/Telas/Login';
 import { Provider } from 'react-redux';
 import store from '../flashcard/src/Redux/store';
 
@@ -21,7 +22,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <Provider store={store}>
-      <Signin/>
+      <Login/>
     </Provider>
     /*<NavigationContainer>
       <Stack.Navigator>
