@@ -14,6 +14,7 @@ import Login from './src/Telas/Login';
 import Collection from './src/Telas/Collections';
 import { Provider } from 'react-redux';
 import store from '../flashcard/src/Redux/store';
+import Flashcards from './src/Telas/Flashcards';
 
 
 //um ou outro

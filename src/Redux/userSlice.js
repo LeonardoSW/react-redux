@@ -8,7 +8,8 @@ export const slice = createSlice({
         user:'',
         password: '',
         message: '',
-        listCollection: []
+        listCollection: [],
+        flashlist: ''
     },
     reducers:{
         setEmail(){
@@ -64,11 +65,15 @@ export const slice = createSlice({
 
         saveCollection(state, action){
             return {...state, listCollection: action.payload.list}
+        },
+
+        saveFlashList(state, action){
+            return {...state, flashlist: action.payload.data}
         }
     }
 })
 
-export const {changeUser, createUser, saveCollection} = slice.actions;
+export const {changeUser, createUser, saveCollection,saveFlashList } = slice.actions;
 
 export const selectUser = state => state.user
 

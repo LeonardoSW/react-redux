@@ -4,32 +4,33 @@ import { Text, View, Button, TextInput, Alert} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveCollection } from '../Redux/userSlice';
+import { saveFlashList } from '../Redux/userSlice';
 
-const Collections = () => {
+const Flashcards = () => {
 
     const dispatch = useDispatch();
     const listCollections = [];
-    const [idExclsao, setIdExclusao] = useState('');
+    const [colecName, setColecName] = useState('');
     const [NameDoc, setNameDoc] = useState('');
     const [Name, setName] = useState('');
     const actState = useSelector((state) => state);
 
     return( 
         <View>
+            <TextInput placeholder='Colecao para carregar' onChangeText={newColecName => setColecName(newColecName)} />
             <Button title='Carregar Collections' onPress={changeCollections}/>
             
             <Text>!space!</Text>
             <Button title='Mostrar Collections na Store' onPress={showCollections}/>
             
-            <Text>!space!</Text>
-            <Button title='Adicionar nova Coleção' onPress={addCollection}/>
+            {/* <Text>!space!</Text>
+            <Button title='Adicionar novo Flashcard' onPress={addCollection}/> */}
             
-            <Text>!space!</Text>
+            {/* <Text>!space!</Text>
             <TextInput placeholder='Id Documento para Remoção' onChangeText={newId => setIdExclusao(newId)} />
-            <Button title='Remover Documento' onPress={removeDocument}/>
+            <Button title='Remover Documento' onPress={removeDocument}/> */}
 
-             <TextInput placeholder='Documento para Alterar' onChangeText={newNameDoc => setNameDoc(newNameDoc)} />
+            <TextInput placeholder='Documento para Alterar' onChangeText={newNameDoc => setNameDoc(newNameDoc)} />
             <TextInput placeholder='Novo Valor Documento' onChangeText={newName => setName(newName)} />
             <Button title='Atualizar Documento' onPress={updateDocument}/> 
         </View>
@@ -37,17 +38,15 @@ const Collections = () => {
         
 //#region change and show store state - collections
     async function showCollections() {
-        console.log(actState.user.listCollection);
+        console.log(actState.user.flashlist);
     }
-    
+
     async function changeCollections(){
-        await firestore().collection('flashcollections').get().then(querySnapshot => {        
-            querySnapshot.forEach(documentSnapshot => {
-                listCollections.push(documentSnapshot.id, documentSnapshot.data());
-            });
-        });
+        var dados = await (await firestore().collection('flashcollections').doc(colecName).get()).data();
         
-        dispatch(saveCollection({list: listCollections}));
+        console.log(dados);
+
+        dispatch(saveFlashList({data: dados}));
         
         console.log("Coleção carregada na store!");
     }
@@ -105,4 +104,4 @@ const Collections = () => {
 //#endregion
 }
 
-export default Collections;
+export default Flashcards;

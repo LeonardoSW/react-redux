@@ -11,11 +11,12 @@ const Signin = () => {
      
     return(
         <View>
+            <Text>CADSTRO!</Text>
             <Text>
                 Enter your email and Password:
             </Text>
-            <TextInput placeholder='teste1' onChangeText={newEml => setEmail(newEml)} />
-            <TextInput placeholder='teste2' onChangeText={newPwd => setPwd(newPwd)} />
+            <TextInput placeholder='Email' onChangeText={newEml => setEmail(newEml)} />
+            <TextInput placeholder='Pass' onChangeText={newPwd => setPwd(newPwd)} />
             <Button title='Cadastrar' onPress={handleSignin}/>
         </View>
     )

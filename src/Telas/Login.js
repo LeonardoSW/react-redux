@@ -19,6 +19,7 @@ const Login = () => {
             <Button title='Entrar' onPress={handleLogin}/>
             <Text>!space!</Text>
             <Button title='Usuario Logado na Store' onPress={showUser}/>
+
         </View>
         )
 
