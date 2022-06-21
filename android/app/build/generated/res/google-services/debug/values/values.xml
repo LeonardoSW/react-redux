@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">251580725797-sm6r59pfl0e8oj3hd0gjaab8mn3a8s6o.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">251580725797</string>
+    <string name="google_api_key" translatable="false">AIzaSyBzVndhLQplocxIoijMQWoVQ9PP8ZGF3KY</string>
+    <string name="google_app_id" translatable="false">1:251580725797:android:de60c95a005227701e9dcc</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBzVndhLQplocxIoijMQWoVQ9PP8ZGF3KY</string>
+    <string name="google_storage_bucket" translatable="false">flashcard-rn.appspot.com</string>
+    <string name="project_id" translatable="false">flashcard-rn</string>
+</resources>
